@@ -16,7 +16,7 @@ Welcome to the Unity Ant Simulator project! This project simulates the behavior 
 
 ### Prerequisites
 
-- Unity 20XX.XX.XX or later.
+- Unity 2022.3.20f1 or later.
 - [Git](https://git-scm.com/) installed on your system.
 
 ### Installation
@@ -58,10 +58,7 @@ This project is licensed under the [MIT License](LICENSE).
 - Thanks to [Unity Technologies](https://unity.com/) for providing an excellent game development platform.
 - Special thanks to the open-source community for their valuable contributions.
 
-## Contact
-
-If you have any questions or suggestions, feel free to contact the project maintainer at [your-email@example.com](mailto:your-email@example.com).
 
 ---
 
-© 2024 Unity Ant Simulator. All rights reserved.
+© 2024 AntBox2D. All rights reserved.
