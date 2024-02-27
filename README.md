@@ -1,4 +1,4 @@
-# Unity Ant Simulator
+# AntBox2D | A Unity Ant Simulator
 
 Welcome to the AntBox2D project! This project simulates the behavior of ants in a virtual environment, allowing users to observe and interact with their activities.
 
