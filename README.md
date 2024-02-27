@@ -1,8 +1,6 @@
 # Unity Ant Simulator
 
-![Ant Simulator Banner](https://placeimg.com/800/400/nature)
-
-Welcome to the Unity Ant Simulator project! This project simulates the behavior of ants in a virtual environment, allowing users to observe and interact with their activities.
+Welcome to the AntBox2D project! This project simulates the behavior of ants in a virtual environment, allowing users to observe and interact with their activities.
 
 ## Features
 
