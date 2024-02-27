@@ -157,12 +157,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1349167300372968779}
-  - component: {fileID: 7835281401513572901}
   - component: {fileID: 4402361269881138846}
   - component: {fileID: 1734059209803890012}
   - component: {fileID: 909460164650161440}
   - component: {fileID: 2285133942780744577}
   - component: {fileID: 5680642861040472601}
+  - component: {fileID: 1106117401954857449}
   m_Layer: 0
   m_Name: AntObject
   m_TagString: Untagged
@@ -186,22 +186,6 @@ Transform:
   - {fileID: 6743005301427634513}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7835281401513572901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2765890497281457864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7f5aac18e44b458196a007c12a7a972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 2
-  steerStrength: 2
-  wanderStrength: 0.2
-  trailRenderer: {fileID: 2285133942780744577}
 --- !u!212 &4402361269881138846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -441,3 +425,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1106117401954857449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2765890497281457864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d524defc5da348979632e8da8cf68e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 0
+  steerStrength: 0
+  wanderStrength: 0
+  trailRenderer: {fileID: 2285133942780744577}
+  foodHandler: {fileID: 0}

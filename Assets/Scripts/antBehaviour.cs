@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class antBehaviour : MonoBehaviour
+public class AntBehaviour : MonoBehaviour
 {
     public float maxSpeed;
     public float steerStrength;
@@ -31,7 +31,7 @@ public class antBehaviour : MonoBehaviour
     void Update()
     {
         antIdleBehaviour();
-        handleFood();
+        //handleFood();
         float angle = -Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg;
         transform.SetPositionAndRotation(position, Quaternion.Euler(0, 0, angle));
     }
@@ -95,7 +95,7 @@ public class antBehaviour : MonoBehaviour
                 Destroy(foodItem);
             }
 
-           
+
         }
     }
 
@@ -107,5 +107,4 @@ public class antBehaviour : MonoBehaviour
         trailRenderer.startWidth = 0.2f; // Trail start width
         trailRenderer.endWidth = 0.02f; // Trail end width
     }
-
 }
