@@ -10,7 +10,7 @@ public class AntBehaviour : MonoBehaviour
 
     // Attachments
     public TrailRenderer trailRenderer;
-    public collisionFood foodHandler;
+    public PolygonCollider2D antVisionCollider;
 
     Vector2 position;
     Vector2 velocity;
@@ -30,13 +30,23 @@ public class AntBehaviour : MonoBehaviour
 
     void Update()
     {
-        antIdleBehaviour();
-        //handleFood();
-        float angle = -Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg;
-        transform.SetPositionAndRotation(position, Quaternion.Euler(0, 0, angle));
+        antExploration();
+        updatePosition();
     }
 
-    void antIdleBehaviour()
+    void antExploration()
+    {
+        boundaryDetection();
+
+        Vector2 desiredVelocity = desiredDirection * maxSpeed;
+        Vector2 desiredSteeringForce = (desiredVelocity - velocity) * steerStrength;
+        Vector2 acceleration = Vector2.ClampMagnitude(desiredSteeringForce, steerStrength) / 1;
+
+        velocity = Vector2.ClampMagnitude(velocity + acceleration * Time.deltaTime, maxSpeed);
+        position += velocity * Time.deltaTime;
+    }
+
+    void boundaryDetection()
     {
         // Get the viewport boundaries of the main camera
         Vector3 minViewportBounds = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));
@@ -59,50 +69,21 @@ public class AntBehaviour : MonoBehaviour
             // Continue with normal wandering behavior
             desiredDirection = (desiredDirection + Random.insideUnitCircle * wanderStrength).normalized;
         }
-
-        Vector2 desiredVelocity = desiredDirection * maxSpeed;
-        Vector2 desiredSteeringForce = (desiredVelocity - velocity) * steerStrength;
-        Vector2 acceleration = Vector2.ClampMagnitude(desiredSteeringForce, steerStrength) / 1;
-
-        velocity = Vector2.ClampMagnitude(velocity + acceleration * Time.deltaTime, maxSpeed);
-        position += velocity * Time.deltaTime;
     }
 
-    void handleFood()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject foodItem = foodHandler.hasCollided(); // Get the collided food item
-
-        if (foodItem != null)
-        {
-            // Calculate direction towards the food item
-            Vector2 directionToFood = (foodItem.transform.position - transform.position).normalized;
-
-            // Update desired direction to move towards the food item
-            desiredDirection = directionToFood;
-
-            // Recalculate desired velocity and steering force
-            Vector2 desiredVelocity = desiredDirection * maxSpeed;
-            Vector2 desiredSteeringForce = (desiredVelocity - velocity) * steerStrength;
-            Vector2 acceleration = Vector2.ClampMagnitude(desiredSteeringForce, steerStrength) / 1;
-
-            // Update velocity and position based on acceleration
-            velocity = Vector2.ClampMagnitude(velocity + acceleration * Time.deltaTime, maxSpeed);
-            position += velocity * Time.deltaTime;
-
-            float distanceToFood = Vector2.Distance(transform.position, foodItem.transform.position);
-            if (distanceToFood < 1f)
-            {
-                Destroy(foodItem);
-            }
-
-
-        }
+        Debug.Log("Found: " + collision.gameObject.name);
     }
 
+    void updatePosition()
+    {
+        float angle = -Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg;
+        transform.SetPositionAndRotation(position, Quaternion.Euler(0, 0, angle));
+    }
 
     void renderTrail()
     {
-        //2D
         trailRenderer.time = 4f; // Trail duration
         trailRenderer.startWidth = 0.2f; // Trail start width
         trailRenderer.endWidth = 0.02f; // Trail end width

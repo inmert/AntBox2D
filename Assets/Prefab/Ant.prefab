@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6743005301427634513}
   - component: {fileID: 3798907800915161269}
   - component: {fileID: 7417680624413290273}
-  - component: {fileID: 2496270878070050626}
   - component: {fileID: 3223652825524113889}
   m_Layer: 0
   m_Name: triangleMesh
@@ -128,18 +127,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2496270878070050626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 862292276467487298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b303ae99a7ea94b7688d282a129aaf56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!33 &3223652825524113889
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -164,7 +151,7 @@ GameObject:
   - component: {fileID: 5680642861040472601}
   - component: {fileID: 1106117401954857449}
   m_Layer: 0
-  m_Name: AntObject
+  m_Name: Ant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -441,4 +428,4 @@ MonoBehaviour:
   steerStrength: 0
   wanderStrength: 0
   trailRenderer: {fileID: 2285133942780744577}
-  foodHandler: {fileID: 0}
+  antVisionCollider: {fileID: 3798907800915161269}
